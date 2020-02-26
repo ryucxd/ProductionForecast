@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbYear = new System.Windows.Forms.ComboBox();
+            this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -52,32 +52,34 @@
             this.lblTotalInstallation = new System.Windows.Forms.Label();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.lblInvoicePrevMonths = new System.Windows.Forms.Label();
-            this.lvlInvoicethisMonth = new System.Windows.Forms.Label();
+            this.lblInvoicethisMonth = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblTarget = new System.Windows.Forms.Label();
             this.lblAmountToTarget = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cmbYear
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(391, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(128, 22);
-            this.comboBox1.TabIndex = 0;
+            this.cmbYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbYear.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbYear.FormattingEnabled = true;
+            this.cmbYear.Location = new System.Drawing.Point(391, 26);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(128, 22);
+            this.cmbYear.TabIndex = 0;
             // 
-            // comboBox2
+            // cmbMonth
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(538, 26);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(128, 22);
-            this.comboBox2.TabIndex = 1;
+            this.cmbMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMonth.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Location = new System.Drawing.Point(538, 26);
+            this.cmbMonth.Name = "cmbMonth";
+            this.cmbMonth.Size = new System.Drawing.Size(128, 22);
+            this.cmbMonth.TabIndex = 1;
             // 
             // label1
             // 
@@ -110,6 +112,7 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label3
             // 
@@ -138,7 +141,7 @@
             this.groupBox1.Controls.Add(this.lblAmountToTarget);
             this.groupBox1.Controls.Add(this.lblTarget);
             this.groupBox1.Controls.Add(this.lblTotal);
-            this.groupBox1.Controls.Add(this.lvlInvoicethisMonth);
+            this.groupBox1.Controls.Add(this.lblInvoicethisMonth);
             this.groupBox1.Controls.Add(this.lblInvoicePrevMonths);
             this.groupBox1.Controls.Add(this.lblSubTotal);
             this.groupBox1.Controls.Add(this.lblTotalInstallation);
@@ -322,15 +325,15 @@
             this.lblInvoicePrevMonths.TabIndex = 15;
             this.lblInvoicePrevMonths.Text = "Traditional Door:";
             // 
-            // lvlInvoicethisMonth
+            // lblInvoicethisMonth
             // 
-            this.lvlInvoicethisMonth.AutoSize = true;
-            this.lvlInvoicethisMonth.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvlInvoicethisMonth.Location = new System.Drawing.Point(171, 206);
-            this.lvlInvoicethisMonth.Name = "lvlInvoicethisMonth";
-            this.lvlInvoicethisMonth.Size = new System.Drawing.Size(98, 14);
-            this.lvlInvoicethisMonth.TabIndex = 16;
-            this.lvlInvoicethisMonth.Text = "Traditional Door:";
+            this.lblInvoicethisMonth.AutoSize = true;
+            this.lblInvoicethisMonth.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvoicethisMonth.Location = new System.Drawing.Point(171, 206);
+            this.lblInvoicethisMonth.Name = "lblInvoicethisMonth";
+            this.lblInvoicethisMonth.Size = new System.Drawing.Size(98, 14);
+            this.lblInvoicethisMonth.TabIndex = 16;
+            this.lblInvoicethisMonth.Text = "Traditional Door:";
             // 
             // lblTotal
             // 
@@ -373,8 +376,8 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbMonth);
+            this.Controls.Add(this.cmbYear);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
@@ -389,8 +392,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbYear;
+        private System.Windows.Forms.ComboBox cmbMonth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
@@ -400,7 +403,7 @@
         private System.Windows.Forms.Label lblAmountToTarget;
         private System.Windows.Forms.Label lblTarget;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label lvlInvoicethisMonth;
+        private System.Windows.Forms.Label lblInvoicethisMonth;
         private System.Windows.Forms.Label lblInvoicePrevMonths;
         private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label lblTotalInstallation;
