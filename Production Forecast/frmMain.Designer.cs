@@ -82,8 +82,20 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbYear
@@ -203,6 +215,7 @@
             this.btnThisMonthInvoice.Size = new System.Drawing.Size(30, 23);
             this.btnThisMonthInvoice.TabIndex = 21;
             this.btnThisMonthInvoice.UseVisualStyleBackColor = true;
+            this.btnThisMonthInvoice.Click += new System.EventHandler(this.btnThisMonthInvoice_Click);
             // 
             // btnPrevInvoice
             // 
@@ -455,6 +468,7 @@
             this.btnThisMonthInvoiceSL.Size = new System.Drawing.Size(30, 23);
             this.btnThisMonthInvoiceSL.TabIndex = 21;
             this.btnThisMonthInvoiceSL.UseVisualStyleBackColor = true;
+            this.btnThisMonthInvoiceSL.Click += new System.EventHandler(this.btnThisMonthInvoiceSL_Click);
             // 
             // btnPrevInvoiceSL
             // 
@@ -667,11 +681,131 @@
             this.label34.TabIndex = 0;
             this.label34.Text = "Slimline Door:";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.label40);
+            this.groupBox3.Controls.Add(this.label41);
+            this.groupBox3.Controls.Add(this.label42);
+            this.groupBox3.Controls.Add(this.label43);
+            this.groupBox3.Controls.Add(this.label44);
+            this.groupBox3.Location = new System.Drawing.Point(12, 422);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(304, 175);
+            this.groupBox3.TabIndex = 22;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Traditional Door Invoice Details";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(171, 133);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(19, 14);
+            this.label20.TabIndex = 14;
+            this.label20.Text = "£0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(171, 107);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(19, 14);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "£0";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(171, 81);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(19, 14);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "£0";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(171, 55);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(19, 14);
+            this.label23.TabIndex = 11;
+            this.label23.Text = "£0";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(171, 29);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(19, 14);
+            this.label24.TabIndex = 10;
+            this.label24.Text = "£0";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(6, 133);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(60, 14);
+            this.label40.TabIndex = 4;
+            this.label40.Text = "Sub Total:";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(6, 107);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(104, 14);
+            this.label41.TabIndex = 3;
+            this.label41.Text = "Total Installation:";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(6, 81);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(84, 14);
+            this.label42.TabIndex = 2;
+            this.label42.Text = "Total Delivery:";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(6, 55);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(82, 14);
+            this.label43.TabIndex = 1;
+            this.label43.Text = "Cost of Extras:";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(6, 29);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(59, 14);
+            this.label44.TabIndex = 0;
+            this.label44.Text = "Freehand";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 727);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
@@ -690,6 +824,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -750,5 +886,16 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
     }
 }

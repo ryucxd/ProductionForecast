@@ -219,7 +219,7 @@ namespace Production_Forecast
                 temp = temp.Replace("£", "");
                 value = Convert.ToDouble(temp);
             }
-            if (value == 0)
+            if (value > 0)
             {
                 //open new form to display what doors are needed
                 //also build string here and pass that over to allow for one form with minimal changes to the code
@@ -228,7 +228,7 @@ namespace Production_Forecast
                 string test;
                 test = Convert.ToDateTime(cmbMonth.Text + " 01, " + cmbYear.Text).ToString("yyyy-MM-dd");
                 //test = test.ToString("yyyy-MM-dd");
-                dateStart = Convert.ToDateTime(test);
+                dateStart = Convert.ToDateTime(test, CultureInfo.InvariantCulture);
 
 
                 string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
@@ -242,8 +242,9 @@ namespace Production_Forecast
                     "LEFT JOIN dbo.[status] f on status_id = f.id " +
                     "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
                     "where date_printed_invoice is null AND" +
-                    " (slimline_y_n = 0 OR slimline_y_n is null) and(status_id = 1 or status_id = 2 or status_id = 3) AND " +
-                    "a.date_completion > DATEADD(day,-60,'" + dateStart.ToString() + "') AND a.date_completion < '" + dateStart.ToString() + "'";
+                    " (slimline_y_n = 0 OR slimline_y_n is null) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
+                    "a.date_completion > DATEADD(day,-60,'" + dateStart.ToString("yyyy-MM-dd") + "') AND a.date_completion < '" + dateStart.ToString("yyyy-MM-dd") + "'" +
+                    "  ORDER BY a.date_completion ASC";
 
                 //open the form
                 frmInvoice frm = new frmInvoice(sql);
@@ -260,7 +261,7 @@ namespace Production_Forecast
                 temp = temp.Replace("£", "");
                 value = Convert.ToDouble(temp);
             }
-            if (value >0)
+            if (value > 0)
             {
                 //open new form to display what doors are needed
                 //also build string here and pass that over to allow for one form with minimal changes to the code
@@ -283,9 +284,95 @@ namespace Production_Forecast
                     "LEFT JOIN dbo.[status] f on status_id = f.id " +
                     "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
                     "where date_printed_invoice is null AND" +
-                    " (slimline_y_n = -1) and(status_id = 1 or status_id = 2 or status_id = 3) AND " +
-                    "a.date_completion > DATEADD(day,-60,'" + dateStart.ToString() + "') AND a.date_completion < '" + dateStart.ToString() + "'";
+                    " (slimline_y_n = -1) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
+                    "a.date_completion > DATEADD(day,-60,'" + dateStart.ToString("yyyy - MM - dd") + "') AND a.date_completion < '" + dateStart.ToString("yyyy - MM - dd") + "'" +
+                    " ORDER BY a.date_completion ASC";
 
+                //open the form
+                frmInvoice frm = new frmInvoice(sql);
+                frm.Show();
+            }
+        }
+
+        private void btnThisMonthInvoice_Click(object sender, EventArgs e)
+        {
+            string temp = lblInvoicethisMonth.Text;
+            double value = 0;
+            if (temp.Contains("£"))
+            {
+                temp = temp.Replace("£", "");
+                value = Convert.ToDouble(temp);
+            }
+            if (value > 0)
+            {
+                //open new form to display what doors are needed
+                //also build string here and pass that over to allow for one form with minimal changes to the code
+                //get the start and end date for the search
+                DateTime dateStart = new DateTime();
+                string test;
+                test = Convert.ToDateTime(cmbMonth.Text + " 01, " + cmbYear.Text).ToString("yyyy-MM-dd");
+                //test = test.ToString("yyyy-MM-dd");
+                dateStart = Convert.ToDateTime(test);
+
+
+                string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
+                    "COALESCE(CAST(date_printed_invoice as nvarchar(max)), 'N/A') as date_printed_invoice,g.[NAME],a.order_number,a.quantity_on_order, " +
+                    "quantity_same,f.status_description,a.date_completion,CASE WHEN COALESCE(e.payment_confirm, 0) = 0 THEN 'Not Comfirmed' WHEN COALESCE(e.payment_confirm,0) = 1 THEN 'Confirmed' END as [payment_confirmed], " +
+                    "COALESCE(door_cost, 0) as Door_cost from dbo.door a " +
+                    "LEFT JOIN dbo.invoice_door b ON a.id = b.door_id " +
+                    "LEFT JOIN dbo.invoice c ON b.invoice_id = c.id " +
+                    "LEFT JOIN dbo.door_type d ON a.door_type_id = d.id " +
+                    "LEFT JOIN dbo.door_payment e ON a.id = e.door_id " +
+                    "LEFT JOIN dbo.[status] f on status_id = f.id " +
+                    "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
+                    "where date_printed_invoice is null AND" +
+                    " (slimline_y_n = 0 OR slimline_y_n is null) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
+                    "a.date_completion >= '" + dateStart.ToString("yyyy - MM - dd") + "' AND a.date_completion < DATEADD(month,1,'" + dateStart.ToString("yyyy - MM - dd") + "')" +
+                    " ORDER BY a.date_completion ASC";
+
+                //open the form
+                frmInvoice frm = new frmInvoice(sql);
+                frm.Show();
+            }
+        }
+
+        private void btnThisMonthInvoiceSL_Click(object sender, EventArgs e)
+        {
+            string temp = lblInvoicethisMonthSL.Text;
+            double value = 0;
+            if (temp.Contains("£"))
+            {
+                temp = temp.Replace("£", "");
+                value = Convert.ToDouble(temp);
+            }
+            if (value > 0)
+            {
+                //open new form to display what doors are needed
+                //also build string here and pass that over to allow for one form with minimal changes to the code
+                //get the start and end date for the search
+                DateTime dateStart = new DateTime();
+                string test;
+                test = Convert.ToDateTime(cmbMonth.Text + " 01, " + cmbYear.Text).ToString("yyyy-MM-dd");
+                //test = test.ToString("yyyy-MM-dd");
+                dateStart = Convert.ToDateTime(test);
+
+
+                string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
+                    "COALESCE(CAST(date_printed_invoice as nvarchar(max)), 'N/A') as date_printed_invoice,g.[NAME],a.order_number,a.quantity_on_order, " +
+                    "quantity_same,f.status_description,a.date_completion,CASE WHEN COALESCE(e.payment_confirm, 0) = 0 THEN 'Not Comfirmed' WHEN COALESCE(e.payment_confirm,0) = 1 THEN 'Confirmed' END as [payment_confirmed], " +
+                    "COALESCE(door_cost, 0) as Door_cost from dbo.door a " +
+                    "LEFT JOIN dbo.invoice_door b ON a.id = b.door_id " +
+                    "LEFT JOIN dbo.invoice c ON b.invoice_id = c.id " +
+                    "LEFT JOIN dbo.door_type d ON a.door_type_id = d.id " +
+                    "LEFT JOIN dbo.door_payment e ON a.id = e.door_id " +
+                    "LEFT JOIN dbo.[status] f on status_id = f.id " +
+                    "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
+                    "where date_printed_invoice is null AND" +
+                    " (slimline_y_n = -1) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
+                    "a.date_completion >= '" + dateStart.ToString("yyyy - MM - dd") + "' AND a.date_completion < DATEADD(month,1,'" + dateStart.ToString("yyyy - MM - dd") + "')" +
+                    " ORDER BY a.date_completion ASC"; 
+
+                
                 //open the form
                 frmInvoice frm = new frmInvoice(sql);
                 frm.Show();

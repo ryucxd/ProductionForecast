@@ -33,6 +33,9 @@ namespace Production_Forecast
                 }
             }
             format();
+            //this needs to have some sort of button on it that prints it to an excel sheet maybe?>
+            //my biggest concern with just printing this form as a image is that if you have to scroll is going to be an absolute nightmare to adjust to that,
+            // if i have an excel sheet i think this will stop that problem as i could probably print well ove 900 sheets for that kind of process (probably)...
         }
 
         public void format()
@@ -50,6 +53,22 @@ namespace Production_Forecast
             dataGridView1.Columns[9].HeaderText = "Completion Date";
             dataGridView1.Columns[10].HeaderText = "Price Confirm";
             dataGridView1.Columns[11].HeaderText = "Line Cost";
+
+
+            //add the total for the label
+            double value = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count;i++)
+            {
+                double temp = 0;
+                temp = Convert.ToDouble(dataGridView1.Rows[i].Cells[11].Value.ToString());
+                value = value + temp;
+            }
+            lblTotal.Text = "Total Value: £" + value.ToString("#,##0.00"); 
+        }
+
+        private void frmInvoice_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
