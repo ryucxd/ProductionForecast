@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Production_Forecast
 {
     public partial class frmMain : Form
     {
+        public string tempString { get; set; }
+        public bool red { get; set; }
+        public bool green { get; set; }
         public frmMain()
         {
             InitializeComponent();
@@ -73,19 +77,177 @@ namespace Production_Forecast
                     SqlDataReader sdr = cmd.ExecuteReader();
                     while (sdr.Read())
                     {
-                        lblTraditionalDoor.Text = "£" + sdr["traditionalDoor"].ToString();
-                        lblCostOfExtras.Text = "£" + sdr["costExtras"].ToString();
-                        lblTotalDelivery.Text = "£" + sdr["totalDelivery"].ToString();
-                        lblTotalInstallation.Text = "£" + sdr["totalInstallation"].ToString();
-                        lblSubTotal.Text = "£" + sdr["subTotal"].ToString();
-                        lblInvoicePrevMonths.Text = "£" + sdr["invoicePrevMonths"].ToString();
-                        lblInvoicethisMonth.Text = "£" + sdr["invoiceThisMonth"].ToString();
-                        lblTotal.Text = "£" + sdr["total"].ToString();
-                        lblTarget.Text = "£" + sdr["target"].ToString();
-                        lblAmountToTarget.Text = "£" + sdr["amountToTarget"].ToString();
+                        //traditional
+                        lblTraditionalDoor.Text = sdr["traditionalDoor"].ToString();
+                        lblCostOfExtras.Text = sdr["costExtras"].ToString();
+                        lblTotalDelivery.Text = sdr["totalDelivery"].ToString();
+                        lblTotalInstallation.Text = sdr["totalInstallation"].ToString();
+                        lblSubTotal.Text = sdr["subTotal"].ToString();
+                        lblInvoicePrevMonths.Text = sdr["invoicePrevMonths"].ToString();
+                        lblInvoicethisMonth.Text = sdr["invoiceThisMonth"].ToString();
+                        lblTotal.Text = sdr["total"].ToString();
+                        lblTarget.Text = sdr["target"].ToString();
+                        lblAmountToTarget.Text = sdr["amountToTarget"].ToString();
+                        //slimline
+                        lblSlimlineDoor.Text = sdr["slimlineDoor"].ToString();
+                        lblCostOfExtrasSL.Text = sdr["costExtrasSL"].ToString();
+                        lblTotalDeliverySL.Text = sdr["totalDeliverySL"].ToString();
+                        lblTotalInstallationSL.Text = sdr["totalInstallationSL"].ToString();
+                        lblSubTotalSL.Text = sdr["subTotalSL"].ToString();
+                        lblInvoicePrevMonthsSL.Text = sdr["invoicePrevMonthsSL"].ToString();
+                        lblInvoicethisMonthSL.Text = sdr["invoiceThisMonthSL"].ToString();
+                        lblTotalSL.Text = sdr["totalSL"].ToString();
+                        lblTargetSL.Text = sdr["targetSL"].ToString();
+                        lblAmountToTargetSL.Text = sdr["amountToTargetSL"].ToString();
                     }
 
                 }
+            }
+            // adjust the strings so the formatting is nicer c:
+            //traditional
+            fixStrings(lblTraditionalDoor.Text, 1);
+            lblTraditionalDoor.Text = tempString;
+
+            fixStrings(lblCostOfExtras.Text, 1);
+            lblCostOfExtras.Text = tempString;
+
+            fixStrings(lblTotalDelivery.Text, 1);
+            lblTotalDelivery.Text = tempString;
+
+            fixStrings(lblTotalInstallation.Text, 1);
+            lblTotalInstallation.Text = tempString;
+
+            fixStrings(lblSubTotal.Text, 1);
+            lblSubTotal.Text = tempString;
+
+            fixStrings(lblInvoicePrevMonths.Text, 1);
+            lblInvoicePrevMonths.Text = tempString;
+
+            fixStrings(lblInvoicethisMonth.Text, 1);
+            lblInvoicethisMonth.Text = tempString;
+
+            fixStrings(lblTotal.Text, 1);
+            lblTotal.Text = tempString;
+
+            fixStrings(lblTarget.Text, 1);
+            lblTarget.Text = tempString;
+
+            fixStrings(lblAmountToTarget.Text, 2);
+            lblAmountToTarget.Text = tempString;
+            if (red == true)
+                lblAmountToTarget.BackColor = Color.PaleVioletRed;
+            if (green == true)
+                lblAmountToTarget.BackColor = Color.LightSeaGreen;
+
+            //slimline
+            fixStrings(lblSlimlineDoor.Text, 1);
+            lblSlimlineDoor.Text = tempString;
+
+            fixStrings(lblCostOfExtrasSL.Text, 1);
+            lblCostOfExtrasSL.Text = tempString;
+
+            fixStrings(lblTotalDeliverySL.Text, 1);
+            lblTotalDeliverySL.Text = tempString;
+
+            fixStrings(lblTotalInstallationSL.Text, 1);
+            lblTotalInstallationSL.Text = tempString;
+
+            fixStrings(lblSubTotalSL.Text, 1);
+            lblSubTotalSL.Text = tempString;
+
+            fixStrings(lblInvoicePrevMonthsSL.Text, 1);
+            lblInvoicePrevMonthsSL.Text = tempString;
+
+            fixStrings(lblInvoicethisMonthSL.Text, 1);
+            lblInvoicethisMonthSL.Text = tempString;
+
+            fixStrings(lblTotalSL.Text, 1);
+            lblTotalSL.Text = tempString;
+
+            fixStrings(lblTargetSL.Text, 1);
+            lblTargetSL.Text = tempString;
+
+            fixStrings(lblAmountToTargetSL.Text, 2);
+            lblAmountToTargetSL.Text = tempString;
+            if (red == true)
+                lblAmountToTargetSL.BackColor = Color.PaleVioletRed;
+            if (green == true)
+                lblAmountToTargetSL.BackColor = Color.LightSeaGreen;
+        }
+        public void fixStrings(string data, int Erabu)
+        {
+            red = false;
+            green = false;
+            tempString = data;
+            double temp = 0;
+            temp = Convert.ToDouble(data);
+            data = temp.ToString("#,##0.00");
+
+            if (temp > 0)
+                red = true;
+            else
+                green = true;
+
+            //ammend stuff like colour and having £-100
+            data = "£" + data;
+            //first up is the - number
+            if (Erabu == 1)
+            {
+                if (data.Contains("-"))
+                {
+                    data = data.Replace("-", "");
+                    data = data.Insert(0, "-");
+                }
+            }
+            else if (Erabu == 2)
+            {
+                if (data.Contains("-"))
+                {
+                    data = "£0";
+                }
+            }
+            tempString = data;
+
+        }
+
+        private void btnPrevInvoice_Click(object sender, EventArgs e)
+        {
+            string temp = lblInvoicePrevMonths.Text;
+            double value = 0;
+            if (temp.Contains("£"))
+            {
+                temp = temp.Replace("£", "");
+                value = Convert.ToDouble(temp);
+            }
+            if (value == 0)
+            {
+                //open new form to display what doors are needed
+                //also build string here and pass that over to allow for one form with minimal changes to the code
+                //get the start and end date for the search
+                DateTime dateStart = new DateTime();
+                string test;
+                test = Convert.ToDateTime(cmbMonth.Text + " 01, " + cmbYear.Text).ToString("yyyy-MM-dd");
+                //test = test.ToString("yyyy-MM-dd");
+                dateStart = Convert.ToDateTime(test);
+
+
+                string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
+                    "COALESCE(CAST(date_printed_invoice as nvarchar(max)), 'N/A') as date_printed_invoice,g.[NAME],a.order_number,a.quantity_on_order, " +
+                    "quantity_same,f.status_description,a.date_completion,CASE WHEN COALESCE(e.payment_confirm, 0) = 0 THEN 'Not Comfirmed' WHEN COALESCE(e.payment_confirm,0) = 1 THEN 'Confirmed' END as [payment_confirmed], " +
+                    "COALESCE(door_cost, 0) as Door_cost from dbo.door a " +
+                    "LEFT JOIN dbo.invoice_door b ON a.id = b.door_id " +
+                    "LEFT JOIN dbo.invoice c ON b.invoice_id = c.id " +
+                    "LEFT JOIN dbo.door_type d ON a.door_type_id = d.id " +
+                    "LEFT JOIN dbo.door_payment e ON a.id = e.door_id " +
+                    "LEFT JOIN dbo.[status] f on status_id = f.id " +
+                    "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
+                    "where date_printed_invoice is null AND" +
+                    " (slimline_y_n = 0 OR slimline_y_n is null) and(status_id = 1 or status_id = 2 or status_id = 3) AND [status_id] <> 6 AND " +
+                    "a.date_completion > DATEADD(day,-60,'" + dateStart.ToString() +"') AND a.date_completion < '" + dateStart.ToString() + "'";
+
+                //open the form
+                frmInvoice frm = new frmInvoice(sql);
+                frm.Show();
             }
         }
     }
