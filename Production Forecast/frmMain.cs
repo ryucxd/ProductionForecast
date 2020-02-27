@@ -378,5 +378,10 @@ namespace Production_Forecast
                 frm.Show();
             }
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            btnSearch.PerformClick();
+        }
     }
 }

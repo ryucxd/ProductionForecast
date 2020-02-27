@@ -93,9 +93,44 @@
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmbYear
@@ -104,7 +139,7 @@
             this.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbYear.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(326, 26);
+            this.cmbYear.Location = new System.Drawing.Point(640, 26);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(128, 22);
             this.cmbYear.TabIndex = 0;
@@ -115,7 +150,7 @@
             this.cmbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonth.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Location = new System.Drawing.Point(473, 26);
+            this.cmbMonth.Location = new System.Drawing.Point(787, 26);
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(128, 22);
             this.cmbMonth.TabIndex = 1;
@@ -125,7 +160,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(375, 6);
+            this.label1.Location = new System.Drawing.Point(689, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 14);
             this.label1.TabIndex = 2;
@@ -136,7 +171,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(516, 6);
+            this.label2.Location = new System.Drawing.Point(830, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 14);
             this.label2.TabIndex = 3;
@@ -145,7 +180,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(617, 24);
+            this.btnSearch.Location = new System.Drawing.Point(931, 24);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(106, 23);
             this.btnSearch.TabIndex = 4;
@@ -172,7 +207,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Location = new System.Drawing.Point(5, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(726, 2);
+            this.label4.Size = new System.Drawing.Size(1040, 2);
             this.label4.TabIndex = 6;
             // 
             // groupBox1
@@ -199,7 +234,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(12, 76);
+            this.groupBox1.Location = new System.Drawing.Point(12, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(304, 322);
             this.groupBox1.TabIndex = 7;
@@ -452,7 +487,7 @@
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.label33);
             this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Location = new System.Drawing.Point(420, 76);
+            this.groupBox2.Location = new System.Drawing.Point(363, 65);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(304, 322);
             this.groupBox2.TabIndex = 22;
@@ -800,11 +835,364 @@
             this.label44.TabIndex = 0;
             this.label44.Text = "Freehand";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label35);
+            this.groupBox4.Controls.Add(this.label45);
+            this.groupBox4.Controls.Add(this.label46);
+            this.groupBox4.Controls.Add(this.label47);
+            this.groupBox4.Controls.Add(this.label48);
+            this.groupBox4.Controls.Add(this.label49);
+            this.groupBox4.Controls.Add(this.label50);
+            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.label36);
+            this.groupBox4.Controls.Add(this.label37);
+            this.groupBox4.Controls.Add(this.label38);
+            this.groupBox4.Controls.Add(this.label39);
+            this.groupBox4.Location = new System.Drawing.Point(712, 65);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(304, 322);
+            this.groupBox4.TabIndex = 23;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Daily Goals";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(175, 136);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(19, 14);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "£0";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(175, 110);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(19, 14);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "£0";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(175, 80);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 14);
+            this.label18.TabIndex = 11;
+            this.label18.Text = "£0";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(175, 50);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(19, 14);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "£0";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(6, 133);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(116, 14);
+            this.label36.TabIndex = 3;
+            this.label36.Text = "Slimline Daily Goal:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(6, 110);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(129, 14);
+            this.label37.TabIndex = 2;
+            this.label37.Text = "Traditional Daily Goal:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(6, 73);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(90, 28);
+            this.label38.TabIndex = 1;
+            this.label38.Text = "Days Until Last \r\nBooking Date:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(6, 50);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(108, 14);
+            this.label39.TabIndex = 0;
+            this.label39.Text = "Last booking Date:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(13, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(278, 22);
+            this.textBox1.TabIndex = 15;
+            this.textBox1.Text = "10 DAY";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(13, 159);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(278, 22);
+            this.textBox2.TabIndex = 16;
+            this.textBox2.Text = "15 DAY";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(175, 285);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(19, 14);
+            this.label15.TabIndex = 24;
+            this.label15.Text = "£0";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(175, 259);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(19, 14);
+            this.label35.TabIndex = 23;
+            this.label35.Text = "£0";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(175, 229);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(19, 14);
+            this.label45.TabIndex = 22;
+            this.label45.Text = "£0";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(175, 199);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(19, 14);
+            this.label46.TabIndex = 21;
+            this.label46.Text = "£0";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(6, 282);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(116, 14);
+            this.label47.TabIndex = 20;
+            this.label47.Text = "Slimline Daily Goal:";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(6, 259);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(129, 14);
+            this.label48.TabIndex = 19;
+            this.label48.Text = "Traditional Daily Goal:";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(6, 222);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(90, 28);
+            this.label49.TabIndex = 18;
+            this.label49.Text = "Days Until Last \r\nBooking Date:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(6, 199);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(108, 14);
+            this.label50.TabIndex = 17;
+            this.label50.Text = "Last booking Date:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label53);
+            this.groupBox5.Controls.Add(this.label54);
+            this.groupBox5.Controls.Add(this.label55);
+            this.groupBox5.Controls.Add(this.label58);
+            this.groupBox5.Controls.Add(this.label59);
+            this.groupBox5.Controls.Add(this.label60);
+            this.groupBox5.Location = new System.Drawing.Point(363, 422);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(304, 109);
+            this.groupBox5.TabIndex = 24;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Overall Totals";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(171, 81);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(19, 14);
+            this.label53.TabIndex = 12;
+            this.label53.Text = "£0";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(171, 55);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(19, 14);
+            this.label54.TabIndex = 11;
+            this.label54.Text = "£0";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(171, 29);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(19, 14);
+            this.label55.TabIndex = 10;
+            this.label55.Text = "£0";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(6, 81);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(128, 14);
+            this.label58.TabIndex = 2;
+            this.label58.Text = "Slimline Overall Total:";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(6, 55);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(79, 14);
+            this.label59.TabIndex = 1;
+            this.label59.Text = "Overall Total:";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(6, 29);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(144, 14);
+            this.label60.TabIndex = 0;
+            this.label60.Text = "Proformas From Previous:";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label51);
+            this.groupBox6.Controls.Add(this.label56);
+            this.groupBox6.Controls.Add(this.label57);
+            this.groupBox6.Controls.Add(this.label61);
+            this.groupBox6.Controls.Add(this.label62);
+            this.groupBox6.Location = new System.Drawing.Point(712, 408);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(304, 189);
+            this.groupBox6.TabIndex = 25;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Potentials";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(141, 121);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(19, 14);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "£0";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(171, 29);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(19, 14);
+            this.label56.TabIndex = 10;
+            this.label56.Text = "£0";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(6, 91);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(150, 14);
+            this.label57.TabIndex = 2;
+            this.label57.Text = "Same as above but 15days";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(6, 55);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(248, 28);
+            this.label61.TabIndex = 1;
+            this.label61.Text = "Traditonal Doors @ £dailygoal/workingdays \r\nslimline@ £same";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(6, 29);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(91, 14);
+            this.label62.TabIndex = 0;
+            this.label62.Text = "Potential total: ";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 727);
+            this.ClientSize = new System.Drawing.Size(1049, 614);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -820,12 +1208,19 @@
             this.Text = "frmMain";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -897,5 +1292,37 @@
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
     }
 }
