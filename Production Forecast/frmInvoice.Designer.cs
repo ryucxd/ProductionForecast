@@ -70,9 +70,9 @@
             this.btnPrint.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(12, 26);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(91, 26);
+            this.btnPrint.Size = new System.Drawing.Size(102, 26);
             this.btnPrint.TabIndex = 2;
-            this.btnPrint.Text = "Print";
+            this.btnPrint.Text = "Export Doors";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 

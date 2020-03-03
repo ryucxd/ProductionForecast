@@ -207,7 +207,9 @@ namespace Production_Forecast
             if (red == true)
                 lblInvoiceTotal.BackColor = Color.LightSeaGreen;
             if (green == true)
-                lblInvoiceTotal.BackColor = Color.PaleVioletRed; 
+                lblInvoiceTotal.BackColor = Color.PaleVioletRed;
+            if (lblInvoiceTotal.Text == "£0.00")
+                lblInvoiceTotal.BackColor = Color.LightSeaGreen;
 
             fixStrings(lblProformaPrevious.Text, 1);
             lblProformaPrevious.Text = tempString;
