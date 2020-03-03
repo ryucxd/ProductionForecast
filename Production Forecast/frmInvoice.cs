@@ -16,7 +16,7 @@ namespace Production_Forecast
     public partial class frmInvoice : Form
     {
         public string sql { get; set; }
-        public frmInvoice(string _sql)
+        public frmInvoice(string _sql,int path)
         {
             InitializeComponent();
             this.Icon = Properties.Resources.productionForecast;
@@ -34,12 +34,42 @@ namespace Production_Forecast
                     conn.Close();
                 }
             }
-            format();
+            if (path == 1)
+                format();
+            else
+                formatInvoice();
             //this needs to have some sort of button on it that prints it to an excel sheet maybe?>
             //my biggest concern with just printing this form as a image is that if you have to scroll is going to be an absolute nightmare to adjust to that,
-            // if i have an excel sheet i think this will stop that problem as i could probably print well ove 900 sheets for that kind of process (probably)...
+            // if i have an excel sheet i think this will stop that problem as i could probably print well over 900 sheets for that kind of process (probably)...
         }
 
+        public void formatInvoice()
+        {
+            //adjust for the other choice
+            btnPrint.Text = "Export Invoices";
+            dataGridView1.Columns[0].HeaderText = "Invoice ID";
+            dataGridView1.Columns[1].HeaderText = "Date Created";
+            dataGridView1.Columns[2].HeaderText = "Date Printed Invoice";
+            dataGridView1.Columns[3].HeaderText = "Proforma Last Chased";
+            dataGridView1.Columns[4].HeaderText = "Description";
+            dataGridView1.Columns[5].HeaderText = "Notes";
+            dataGridView1.Columns[6].HeaderText = "COST (£)";
+            dataGridView1.Columns[7].HeaderText = "Delivery Cost (£)";
+            dataGridView1.Columns[8].HeaderText = "Install";
+            dataGridView1.Columns[9].HeaderText = "Slimline";       
+            
+            //add the total for the label
+            double value = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                double Cost = 0;
+                double delivery = 0;
+                Cost = Convert.ToDouble(dataGridView1.Rows[i].Cells[6].Value.ToString());
+                delivery = Convert.ToDouble(dataGridView1.Rows[i].Cells[7].Value.ToString());
+                value = value + (Cost + delivery);
+            }
+            lblTotal.Text = "Total Value: £" + value.ToString("#,##0.00");
+        }
         public void format()
         {
             //adjust dgv hereeeeeee
@@ -85,14 +115,14 @@ namespace Production_Forecast
             xlexcel.Visible = true;
             xlWorkBook = xlexcel.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+            Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1,2];
             CR.Select();
             xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
 
             //now print
             //xlWorkSheet.PrintOut(
             //    Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-            //    Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            //    Type.Missing, Type.Missing, Type.Missing, Type.Missing);            
         }
 
 

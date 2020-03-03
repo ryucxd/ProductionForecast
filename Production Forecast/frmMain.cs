@@ -24,11 +24,14 @@ namespace Production_Forecast
 
             //start filling the comboboxes :)
             //year
+            cmbYear.Items.Add("2018");
             cmbYear.Items.Add("2019");
             cmbYear.Items.Add("2020");
             cmbYear.Items.Add("2021");
             cmbYear.Items.Add("2022");
-            cmbYear.SelectedIndex = 1;
+            cmbYear.Items.Add("2023");
+            cmbYear.Items.Add("2024");
+            cmbYear.SelectedIndex = cmbYear.FindStringExact(DateTime.Now.Year.ToString());
             //month
             cmbMonth.Items.Add("January");
             cmbMonth.Items.Add("February");
@@ -42,7 +45,9 @@ namespace Production_Forecast
             cmbMonth.Items.Add("October");
             cmbMonth.Items.Add("November");
             cmbMonth.Items.Add("December");
-            cmbMonth.SelectedIndex = 0;
+            cmbMonth.SelectedIndex = Convert.ToInt32(DateTime.Now.Month.ToString()) - 1;
+
+
         }
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -312,8 +317,8 @@ namespace Production_Forecast
                     "  ORDER BY a.date_completion ASC";
 
                 //open the form
-                frmInvoice frm = new frmInvoice(sql);
-                frm.Show();
+                frmInvoice frm = new frmInvoice(sql, 1);
+                frm.ShowDialog();
             }
         }
 
@@ -355,8 +360,8 @@ namespace Production_Forecast
                     " ORDER BY a.date_completion ASC";
 
                 //open the form
-                frmInvoice frm = new frmInvoice(sql);
-                frm.Show();
+                frmInvoice frm = new frmInvoice(sql, 1);
+                frm.ShowDialog();
             }
         }
 
@@ -398,8 +403,8 @@ namespace Production_Forecast
                     " ORDER BY a.date_completion ASC";
 
                 //open the form
-                frmInvoice frm = new frmInvoice(sql);
-                frm.Show();
+                frmInvoice frm = new frmInvoice(sql, 1);
+                frm.ShowDialog();
             }
         }
 
@@ -442,14 +447,71 @@ namespace Production_Forecast
 
 
                 //open the form
-                frmInvoice frm = new frmInvoice(sql);
-                frm.Show();
+                frmInvoice frm = new frmInvoice(sql, 1);
+                frm.ShowDialog();
             }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             btnSearch.PerformClick();
+        }
+
+        private void cmbYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changename();
+        }
+
+        private void cmbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            changename();
+        }
+
+        public void changename()
+        {
+            label3.Text = "Production Forecast " + cmbYear.Text + " - " + cmbMonth.Text;
+        }
+
+        private void btnPrevInvoices_Click(object sender, EventArgs e)
+        {
+            string temp = lblProformaPrevious.Text;
+            double value = 0;
+            if (temp.Contains("£"))
+            {
+                temp = temp.Replace("£", "");
+                value = Convert.ToDouble(temp);
+            }
+            if (value > 0)
+            {
+                //open new form to display what doors are needed
+                //also build string here and pass that over to allow for one form with minimal changes to the code
+                //get the start and end date for the search
+                DateTime dateStart = new DateTime();
+                string test;
+                test = Convert.ToDateTime(cmbMonth.Text + " 01, " + cmbYear.Text).ToString("yyyy-MM-dd");
+                //test = test.ToString("yyyy-MM-dd");
+                dateStart = Convert.ToDateTime(test);
+
+
+                string sql = "select a.id,CAST(date_created as date) as [date_created], " +
+                    "CASE WHEN CAST(date_printed_invoice as varchar) is null then 'Not printed' ELSE CAST(CAST(date_printed_invoice as date) as varchar)  END as [date_printed_invoice], " +
+                    "CASE WHEN CAST(proforma_last_chased as varchar) is null then 'Not chased' ELSE CAST(CAST(proforma_last_chased as date) as varchar)  END as [proforma_last_chased], " +
+                    "CASE WHEN b.[description] is null then 'N/A' ELSE b.[description] END as [description], " +
+                    "CASE WHEN notes is null then 'N/A' ELSE notes END as notes, " +
+                    "ROUND(COALESCE(b.cost,0),2) as [cost], " +
+                    "ROUND(COALESCE(b.delivery_cost,0),2) as [delivery_cost], " +
+                    "CASE WHEN is_install = -1 then 'Yes' ELSE 'No'END as install, " +
+                    "CASE WHEN is_slimline = -1 then 'Yes' ELSE 'No' END as slimline " +
+                    "FROM dbo.invoice a " +
+                    "INNER JOIN dbo.invoice_freehand b ON a.id = b.invoice_id " +
+                    "where a.date_created >= DATEADD(DAY,-60,'" + dateStart.ToString("yyyy - MM - dd") + "') AND a.date_created < DATEADD(month,1,'" + dateStart.ToString("yyyy - MM - dd") + "') and a.invoice_type_id = 3 " +
+                    "ORDER BY a.date_created ASC";
+
+
+                //open the form
+                frmInvoice frm = new frmInvoice(sql, 2);
+                frm.ShowDialog();
+            }
         }
     }
 }

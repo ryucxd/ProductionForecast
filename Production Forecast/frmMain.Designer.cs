@@ -119,6 +119,7 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
+            this.btnPrevInvoices = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,6 +137,7 @@
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(128, 22);
             this.cmbYear.TabIndex = 0;
+            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
             // 
             // cmbMonth
             // 
@@ -147,6 +149,7 @@
             this.cmbMonth.Name = "cmbMonth";
             this.cmbMonth.Size = new System.Drawing.Size(128, 22);
             this.cmbMonth.TabIndex = 1;
+            this.cmbMonth.SelectedIndexChanged += new System.EventHandler(this.cmbMonth_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -1041,15 +1044,11 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.lblOverAll2);
             this.groupBox5.Controls.Add(this.lblOverAll);
-            this.groupBox5.Controls.Add(this.lblProformaPrevious);
-            this.groupBox5.Controls.Add(this.label58);
             this.groupBox5.Controls.Add(this.label59);
-            this.groupBox5.Controls.Add(this.label60);
             this.groupBox5.Location = new System.Drawing.Point(363, 398);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(304, 121);
+            this.groupBox5.Size = new System.Drawing.Size(304, 69);
             this.groupBox5.TabIndex = 24;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Overall Totals";
@@ -1058,17 +1057,18 @@
             // 
             this.lblOverAll2.AutoSize = true;
             this.lblOverAll2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverAll2.Location = new System.Drawing.Point(171, 84);
+            this.lblOverAll2.Location = new System.Drawing.Point(883, 472);
             this.lblOverAll2.Name = "lblOverAll2";
             this.lblOverAll2.Size = new System.Drawing.Size(19, 14);
             this.lblOverAll2.TabIndex = 12;
             this.lblOverAll2.Text = "£0";
+            this.lblOverAll2.Visible = false;
             // 
             // lblOverAll
             // 
             this.lblOverAll.AutoSize = true;
             this.lblOverAll.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverAll.Location = new System.Drawing.Point(171, 55);
+            this.lblOverAll.Location = new System.Drawing.Point(171, 33);
             this.lblOverAll.Name = "lblOverAll";
             this.lblOverAll.Size = new System.Drawing.Size(19, 14);
             this.lblOverAll.TabIndex = 11;
@@ -1078,27 +1078,29 @@
             // 
             this.lblProformaPrevious.AutoSize = true;
             this.lblProformaPrevious.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProformaPrevious.Location = new System.Drawing.Point(171, 28);
+            this.lblProformaPrevious.Location = new System.Drawing.Point(887, 512);
             this.lblProformaPrevious.Name = "lblProformaPrevious";
             this.lblProformaPrevious.Size = new System.Drawing.Size(19, 14);
             this.lblProformaPrevious.TabIndex = 10;
             this.lblProformaPrevious.Text = "£0";
+            this.lblProformaPrevious.Visible = false;
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(6, 77);
+            this.label58.Location = new System.Drawing.Point(718, 465);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(142, 28);
             this.label58.TabIndex = 2;
             this.label58.Text = "Overall Total minus \r\nProformas from Previous ";
+            this.label58.Visible = false;
             // 
             // label59
             // 
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(6, 55);
+            this.label59.Location = new System.Drawing.Point(6, 33);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(79, 14);
             this.label59.TabIndex = 1;
@@ -1108,21 +1110,39 @@
             // 
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(6, 21);
+            this.label60.Location = new System.Drawing.Point(722, 505);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(95, 28);
             this.label60.TabIndex = 0;
             this.label60.Text = "Proformas From \r\nPrevious Total:";
+            this.label60.Visible = false;
+            // 
+            // btnPrevInvoices
+            // 
+            this.btnPrevInvoices.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrevInvoices.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevInvoices.Image")));
+            this.btnPrevInvoices.Location = new System.Drawing.Point(970, 508);
+            this.btnPrevInvoices.Name = "btnPrevInvoices";
+            this.btnPrevInvoices.Size = new System.Drawing.Size(30, 23);
+            this.btnPrevInvoices.TabIndex = 22;
+            this.btnPrevInvoices.UseVisualStyleBackColor = true;
+            this.btnPrevInvoices.Visible = false;
+            this.btnPrevInvoices.Click += new System.EventHandler(this.btnPrevInvoices_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 589);
+            this.Controls.Add(this.btnPrevInvoices);
             this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.lblOverAll2);
+            this.Controls.Add(this.lblProformaPrevious);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.label60);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label58);
             this.Controls.Add(this.lblTotalSL);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.groupBox1);
@@ -1251,5 +1271,6 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button btnPrevInvoices;
     }
 }
