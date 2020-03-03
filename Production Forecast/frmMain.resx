@@ -121,7 +121,7 @@
   <data name="btnThisMonthInvoice.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAJaSURBVDhPY0AHUlJSbNbW1lMTEhJaQ0NDnQ0NDZmgUsQD
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAJaSURBVDhPY0AHUlJSbNbW1lMTEhJaQ0NDnQ0NDZmgUsQD
         MTEx55SUlA/Hjh37OXv27JN+fn5SUCn8QElJyRzKZJCVla0vKCj4eeLEiZ+TJk1aCBXGDXh4eFg0NDS+
         lZaWNunq6pqoq6t/WLhwIdiAefPmbYEqww/k5OQO7tu372dycvLH7u5usGYQnjBhwjKoEvxAXFzcsa6u
         7htMIwgf37ny96ENc341NDR0QJXhB1paWh5AJ9/atWvXD6DNT/bt2vbr6a6Ov0c2zPrd1NQ0wdjYmBGq
@@ -137,7 +137,7 @@
   <data name="btnPrevInvoice.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAJISURBVDhPY0AHWlpabFZWVlPj4+Nbg4ODnYFCTBAZEoCY
+        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAJISURBVDhPY0AHWlpabFZWVlPj4+Nbg4ODnYFCTBAZEoCY
         mJhzcnLyh6NHj/6cNWvWST8/PymoFH6goKBgDmUyyMjI1Ofn5/88fvz4z4kTJy6ECuMFLBoaGt9KS0ub
         dHR0TNTV1T8sWLAAbMC8efO2QNXgB3Jycgf37dv3E+j8j93d3WDNIDxhwoRlUCX4gbi4uGNdXd03mEYw
         3rHi98ENc37V19d3QJXhB8BY8Jg7d+6tXbt2/QDa/GTvzq2/nuzq+Htk/azfjY2NE4BKGCEqsQPm0NBQ
@@ -153,7 +153,7 @@
   <data name="btnThisMonthInvoiceSL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAJaSURBVDhPY0AHUlJSbNbW1lMTEhJaQ0NDnQ0NDZmgUsQD
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAJaSURBVDhPY0AHUlJSbNbW1lMTEhJaQ0NDnQ0NDZmgUsQD
         MTEx55SUlA/Hjh37OXv27JN+fn5SUCn8QElJyRzKZJCVla0vKCj4eeLEiZ+TJk1aCBXGDXh4eFg0NDS+
         lZaWNunq6pqoq6t/WLhwIdiAefPmbYEqww/k5OQO7tu372dycvLH7u5usGYQnjBhwjKoEvxAXFzcsa6u
         7htMIwgf37ny96ENc341NDR0QJXhB1paWh5AJ9/atWvXD6DNT/bt2vbr6a6Ov0c2zPrd1NQ0wdjYmBGq
@@ -169,7 +169,7 @@
   <data name="btnPrevInvoiceSL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAJaSURBVDhPY0AHUlJSbNbW1lMTEhJaQ0NDnQ0NDZmgUsQD
+        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAJaSURBVDhPY0AHUlJSbNbW1lMTEhJaQ0NDnQ0NDZmgUsQD
         MTEx55SUlA/Hjh37OXv27JN+fn5SUCn8QElJyRzKZJCVla0vKCj4eeLEiZ+TJk1aCBXGDXh4eFg0NDS+
         lZaWNunq6pqoq6t/WLhwIdiAefPmbYEqww/k5OQO7tu372dycvLH7u5usGYQnjBhwjKoEvxAXFzcsa6u
         7htMIwgf37ny96ENc341NDR0QJXhB1paWh5AJ9/atWvXD6DNT/bt2vbr6a6Ov0c2zPrd1NQ0wdjYmBGq

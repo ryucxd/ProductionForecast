@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace Production_Forecast
 {
@@ -57,18 +59,53 @@ namespace Production_Forecast
 
             //add the total for the label
             double value = 0;
-            for (int i = 0; i < dataGridView1.Rows.Count;i++)
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 double temp = 0;
                 temp = Convert.ToDouble(dataGridView1.Rows[i].Cells[11].Value.ToString());
                 value = value + temp;
             }
-            lblTotal.Text = "Total Value: £" + value.ToString("#,##0.00"); 
+            lblTotal.Text = "Total Value: £" + value.ToString("#,##0.00");
         }
 
         private void frmInvoice_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            //string filePath = @"\\designsvr1\public\Excel\TEMPLATE.xlsx";
+            copyAlltoClipboard();
+            Excel.Application xlexcel;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Excel.Application();
+            xlexcel.Visible = true;
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Excel.Range CR = (Excel.Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+
+            //now print
+            //xlWorkSheet.PrintOut(
+            //    Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+            //    Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+        }
+
+
+
+        private void copyAlltoClipboard()
+        {
+            dataGridView1.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dataGridView1.SelectAll();
+            DataObject dataObj = dataGridView1.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+
     }
 }

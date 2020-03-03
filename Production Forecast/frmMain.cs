@@ -99,6 +99,26 @@ namespace Production_Forecast
                         lblTotalSL.Text = sdr["totalSL"].ToString();
                         lblTargetSL.Text = sdr["targetSL"].ToString();
                         lblAmountToTargetSL.Text = sdr["amountToTargetSL"].ToString();
+                        //invoice stuff
+                        lblFreeHandInvoiceTotal.Text = sdr["freehandInvoiceTotal"].ToString();
+                        lblProformaTotal.Text = sdr["proformaTotal"].ToString();
+                        lblCredit.Text = sdr["creditTotal"].ToString();
+                        lblPaymentApp.Text = sdr["paymentApp"].ToString();
+                        lblInvoiceTotal.Text = sdr["invoiceTotal"].ToString();
+                        //TOTALS
+                        lblProformaPrevious.Text = sdr["proformaPrev"].ToString();
+                        lblOverAll.Text = sdr["overAllTotal"].ToString();
+                        lblOverAll2.Text = sdr["overAllTotal2"].ToString();
+                        //days until
+                        lbl10Days.Text = sdr["10days"].ToString();
+                        lblDaysUntil10.Text = sdr["daysUntil10"].ToString();
+                        lbl15Days.Text = sdr["15days"].ToString();
+                        lblDaysUntil15.Text = sdr["daysUntil15"].ToString();
+                        //dailyGoal
+                        lblTraditionalDG10.Text = sdr["traditionalDailyGoal"].ToString();
+                        lblSlimlineDG10.Text = sdr["slimlineDailyGoal"].ToString();
+                        lblTraditionalDG15.Text = sdr["traditionalDailyGoall"].ToString();
+                        lblSlimlineDG15.Text = sdr["slimlineDailyGoall"].ToString();
                     }
 
                 }
@@ -173,6 +193,48 @@ namespace Production_Forecast
                 lblAmountToTargetSL.BackColor = Color.PaleVioletRed;
             if (green == true)
                 lblAmountToTargetSL.BackColor = Color.LightSeaGreen;
+
+            fixStrings(lblFreeHandInvoiceTotal.Text, 1);
+            lblFreeHandInvoiceTotal.Text = tempString;
+            fixStrings(lblProformaTotal.Text, 1);
+            lblProformaTotal.Text = tempString;
+            fixStrings(lblCredit.Text, 1);
+            lblCredit.Text = tempString;
+            fixStrings(lblPaymentApp.Text, 1);
+            lblPaymentApp.Text = tempString;
+            fixStrings(lblInvoiceTotal.Text, 1);
+            lblInvoiceTotal.Text = tempString;
+            if (red == true)
+                lblInvoiceTotal.BackColor = Color.LightSeaGreen;
+            if (green == true)
+                lblInvoiceTotal.BackColor = Color.PaleVioletRed; 
+
+            fixStrings(lblProformaPrevious.Text, 1);
+            lblProformaPrevious.Text = tempString;
+
+            fixStrings(lblOverAll.Text, 1);
+            lblOverAll.Text = tempString;
+            fixStrings(lblOverAll2.Text, 1);
+            lblOverAll2.Text = tempString;
+
+            //uhhh some minor formatting for these dudes
+            tempString = lbl10Days.Text;
+            tempString = tempString.Remove(11, (lbl10Days.Text.Length - 11));
+            lbl10Days.Text = tempString;
+
+            tempString = lbl15Days.Text;
+            tempString = tempString.Remove(11, (lbl15Days.Text.Length - 11));
+            lbl15Days.Text = tempString;
+
+            fixStrings(lblTraditionalDG10.Text, 1);
+            lblTraditionalDG10.Text = tempString;
+            fixStrings(lblSlimlineDG10.Text, 1);
+            lblSlimlineDG10.Text = tempString;
+            fixStrings(lblTraditionalDG15.Text, 1);
+            lblTraditionalDG15.Text = tempString;
+            fixStrings(lblSlimlineDG15.Text, 1);
+            lblSlimlineDG15.Text = tempString;
+
         }
         public void fixStrings(string data, int Erabu)
         {
@@ -234,13 +296,14 @@ namespace Production_Forecast
                 string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
                     "COALESCE(CAST(date_printed_invoice as nvarchar(max)), 'N/A') as date_printed_invoice,g.[NAME],a.order_number,a.quantity_on_order, " +
                     "quantity_same,f.status_description,a.date_completion,CASE WHEN COALESCE(e.payment_confirm, 0) = 0 THEN 'Not Comfirmed' WHEN COALESCE(e.payment_confirm,0) = 1 THEN 'Confirmed' END as [payment_confirmed], " +
-                    "COALESCE(door_cost, 0) as Door_cost from dbo.door a " +
+                    "COALESCE(h.line_total, 0) as Door_cost from dbo.door a " +
                     "LEFT JOIN dbo.invoice_door b ON a.id = b.door_id " +
                     "LEFT JOIN dbo.invoice c ON b.invoice_id = c.id " +
                     "LEFT JOIN dbo.door_type d ON a.door_type_id = d.id " +
                     "LEFT JOIN dbo.door_payment e ON a.id = e.door_id " +
                     "LEFT JOIN dbo.[status] f on status_id = f.id " +
                     "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
+                     "LEFT JOIN dbo.view_door_value h ON a.id = h.id " +
                     "where date_printed_invoice is null AND" +
                     " (slimline_y_n = 0 OR slimline_y_n is null) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
                     "a.date_completion > DATEADD(day,-60,'" + dateStart.ToString("yyyy-MM-dd") + "') AND a.date_completion < '" + dateStart.ToString("yyyy-MM-dd") + "'" +
@@ -276,13 +339,14 @@ namespace Production_Forecast
                 string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
                     "COALESCE(CAST(date_printed_invoice as nvarchar(max)), 'N/A') as date_printed_invoice,g.[NAME],a.order_number,a.quantity_on_order, " +
                     "quantity_same,f.status_description,a.date_completion,CASE WHEN COALESCE(e.payment_confirm, 0) = 0 THEN 'Not Comfirmed' WHEN COALESCE(e.payment_confirm,0) = 1 THEN 'Confirmed' END as [payment_confirmed], " +
-                    "COALESCE(door_cost, 0) as Door_cost from dbo.door a " +
+                    "COALESCE(h.line_total, 0) as Door_cost from dbo.door a " +
                     "LEFT JOIN dbo.invoice_door b ON a.id = b.door_id " +
                     "LEFT JOIN dbo.invoice c ON b.invoice_id = c.id " +
                     "LEFT JOIN dbo.door_type d ON a.door_type_id = d.id " +
                     "LEFT JOIN dbo.door_payment e ON a.id = e.door_id " +
                     "LEFT JOIN dbo.[status] f on status_id = f.id " +
                     "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
+                    "LEFT JOIN dbo.view_door_value h ON a.id = h.id " +
                     "where date_printed_invoice is null AND" +
                     " (slimline_y_n = -1) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
                     "a.date_completion > DATEADD(day,-60,'" + dateStart.ToString("yyyy - MM - dd") + "') AND a.date_completion < '" + dateStart.ToString("yyyy - MM - dd") + "'" +
@@ -318,13 +382,14 @@ namespace Production_Forecast
                 string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
                     "COALESCE(CAST(date_printed_invoice as nvarchar(max)), 'N/A') as date_printed_invoice,g.[NAME],a.order_number,a.quantity_on_order, " +
                     "quantity_same,f.status_description,a.date_completion,CASE WHEN COALESCE(e.payment_confirm, 0) = 0 THEN 'Not Comfirmed' WHEN COALESCE(e.payment_confirm,0) = 1 THEN 'Confirmed' END as [payment_confirmed], " +
-                    "COALESCE(door_cost, 0) as Door_cost from dbo.door a " +
+                    "COALESCE(h.line_total, 0) as Door_cost from dbo.door a " +
                     "LEFT JOIN dbo.invoice_door b ON a.id = b.door_id " +
                     "LEFT JOIN dbo.invoice c ON b.invoice_id = c.id " +
                     "LEFT JOIN dbo.door_type d ON a.door_type_id = d.id " +
                     "LEFT JOIN dbo.door_payment e ON a.id = e.door_id " +
                     "LEFT JOIN dbo.[status] f on status_id = f.id " +
                     "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
+                     "LEFT JOIN dbo.view_door_value h ON a.id = h.id " +
                     "where date_printed_invoice is null AND" +
                     " (slimline_y_n = 0 OR slimline_y_n is null) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
                     "a.date_completion >= '" + dateStart.ToString("yyyy - MM - dd") + "' AND a.date_completion < DATEADD(month,1,'" + dateStart.ToString("yyyy - MM - dd") + "')" +
@@ -360,19 +425,20 @@ namespace Production_Forecast
                 string sql = "select a.id,COALESCE(b.id,0) as delivery_id,COALESCE(CAST(date_printed_delivery as nvarchar(max)),'N/A') as date_printed_delivery," +
                     "COALESCE(CAST(date_printed_invoice as nvarchar(max)), 'N/A') as date_printed_invoice,g.[NAME],a.order_number,a.quantity_on_order, " +
                     "quantity_same,f.status_description,a.date_completion,CASE WHEN COALESCE(e.payment_confirm, 0) = 0 THEN 'Not Comfirmed' WHEN COALESCE(e.payment_confirm,0) = 1 THEN 'Confirmed' END as [payment_confirmed], " +
-                    "COALESCE(door_cost, 0) as Door_cost from dbo.door a " +
+                    "COALESCE(h.line_total, 0) as Door_cost from dbo.door a " +
                     "LEFT JOIN dbo.invoice_door b ON a.id = b.door_id " +
                     "LEFT JOIN dbo.invoice c ON b.invoice_id = c.id " +
                     "LEFT JOIN dbo.door_type d ON a.door_type_id = d.id " +
                     "LEFT JOIN dbo.door_payment e ON a.id = e.door_id " +
                     "LEFT JOIN dbo.[status] f on status_id = f.id " +
                     "LEFT JOIN dbo.SALES_LEDGER g ON a.customer_acc_ref = g.ACCOUNT_REF " +
+                     "LEFT JOIN dbo.view_door_value h ON a.id = h.id " +
                     "where date_printed_invoice is null AND" +
                     " (slimline_y_n = -1) and(status_id = 1 or status_id = 2 or status_id = 3 or status_id = 5) AND " +
                     "a.date_completion >= '" + dateStart.ToString("yyyy - MM - dd") + "' AND a.date_completion < DATEADD(month,1,'" + dateStart.ToString("yyyy - MM - dd") + "')" +
-                    " ORDER BY a.date_completion ASC"; 
+                    " ORDER BY a.date_completion ASC";
 
-                
+
                 //open the form
                 frmInvoice frm = new frmInvoice(sql);
                 frm.Show();
