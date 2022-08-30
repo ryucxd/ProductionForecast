@@ -31,6 +31,12 @@ namespace Production_Forecast
             cmbYear.Items.Add("2022");
             cmbYear.Items.Add("2023");
             cmbYear.Items.Add("2024");
+            cmbYear.Items.Add("2025");
+            cmbYear.Items.Add("2026");
+            cmbYear.Items.Add("2027");
+            cmbYear.Items.Add("2028");
+            cmbYear.Items.Add("2029");
+            cmbYear.Items.Add("2030");
             cmbYear.SelectedIndex = cmbYear.FindStringExact(DateTime.Now.Year.ToString());
             //month
             cmbMonth.Items.Add("January");
@@ -124,6 +130,10 @@ namespace Production_Forecast
                         lblSlimlineDG10.Text = sdr["slimlineDailyGoal"].ToString();
                         lblTraditionalDG15.Text = sdr["traditionalDailyGoall"].ToString();
                         lblSlimlineDG15.Text = sdr["slimlineDailyGoall"].ToString();
+                        //proforma paid date
+                        lblProformaTraditional.Text = sdr["traditionalProforma"].ToString();
+                        lblProfomaSlimline.Text = sdr["slimlineProforma"].ToString();
+
                     }
 
                 }
@@ -241,6 +251,13 @@ namespace Production_Forecast
             lblTraditionalDG15.Text = tempString;
             fixStrings(lblSlimlineDG15.Text, 1);
             lblSlimlineDG15.Text = tempString;
+
+
+            //profroma stuffs
+            fixStrings(lblProfomaSlimline.Text, 1);
+            lblProfomaSlimline.Text = tempString;
+            fixStrings(lblProformaTraditional.Text, 1);
+            lblProformaTraditional.Text = tempString;
 
         }
         public void fixStrings(string data, int Erabu)
